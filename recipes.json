@@ -1,0 +1,123 @@
+{
+    "recipes": [
+        {
+            "title": "Green Chile Chicken Enchiladas",
+            "source": "https://www.iheartnaptime.net/green-chile-enchiladas/",
+            "time": 60,
+            "servings-low": 4,
+            "servings-high": 5,
+            "ingredients": [
+                {
+                    "name": "Tortillas (Flour/Corn)",
+                    "amount-low": 8,
+                    "amount-high": 10,
+                    "units": null,
+                    "processing": null,
+                    "notes": null,
+                    "required": true 
+                },
+                {
+                    "name": "Shredded Chicken",
+                    "amount-low": 2,
+                    "amount-high": 3,
+                    "units": "Cups",
+                    "processing": null,
+                    "notes": "approx. 2-3 Chicken Breasts",
+                    "required": true
+                },
+                {
+                    "name": "Garlic",
+                    "amount-low": 1,
+                    "amount-high": 1,
+                    "units": "clove",
+                    "processing": "minced",
+                    "notes": "",
+                    "required": false
+                },
+                {
+                    "name": "Chili Powder",
+                    "amount-low": 0.5,
+                    "amount-high": 0.5,
+                    "units": "tsp",
+                    "processing": "",
+                    "notes": "",
+                    "required": true
+                },
+                {
+                    "name": "Cumin",
+                    "amount-low": 0.25,
+                    "amount-high": 0.25,
+                    "units": "tsp",
+                    "processing": "",
+                    "notes": "",
+                    "required": true
+                },
+                {
+                    "name": "Salt",
+                    "amount-low": 0.5,
+                    "amount-high": 0.5,
+                    "units": "tsp",
+                    "processing": "",
+                    "notes": "(adjust to taste)",
+                    "required": true
+                },
+                {
+                    "name": "Black Pepper",
+                    "amount-low": 0.5,
+                    "amount-high": 0.5,
+                    "units": "tsp",
+                    "processing": "",
+                    "notes": "",
+                    "required": true
+                },
+                {
+                    "name": "Ortega Diced Green Chiles",
+                    "amount-low": 0.8,
+                    "amount-high": 0.8,
+                    "units": "oz",
+                    "processing": "",
+                    "notes": "(2 4oz cans)",
+                    "reference": "https://www.ortega.com/product/mild-diced-green-chiles",
+                    "required": true
+                },
+                {
+                    "name": "Cream Cheese",
+                    "amount-low": 1,
+                    "amount-high": 1,
+                    "units": "Box",
+                    "processing": "softened",
+                    "notes": "",
+                    "reference": "https://www.myfoodandfamily.com/brands/philadelphia/product/00021000612239/philadelphia-original-cream-cheese-brick-8-oz-box?categoryid=25001",
+                    "required": true
+                },
+                {
+                    "name": "Hatch Green Enchilada Sauce",
+                    "amount-low": 1,
+                    "amount-high": 1,
+                    "units": "can",
+                    "processing": null,
+                    "notes": null,
+                    "reference": "https://www.hatchchileco.com/product/hatch-green-medium-enchilada-sauce-case-1215oz/",
+                    "required": true
+                },{
+                    "name": "Shredded Pepper Jack Cheese",
+                    "amount-low": 0.5,
+                    "amount-high": 1,
+                    "units": "cup",
+                    "processing": null,
+                    "notes": null,
+                    "reference": "https://www.hatchchileco.com/product/hatch-green-medium-enchilada-sauce-case-1215oz/",
+                    "required": false
+                }
+            ],
+            "instructions": [
+                "Combine cream cheese, garlic, chili powder, cumin, kosher salt, black pepper, and diced green chiles in a medium sized bowl. Stir until combined.",
+                "Add shredded chicken, incorporating gently until chicken is thoroughly coated.",
+                "Place a little green enchilada sauce on the bottom of a 9×13 dish.",
+                "Spoon 2-3 tbsps into each tortilla and roll it up, placing into the prepared dish",
+                "Pour the rest of the green enchilada sauce over the tortillas and top with shredded cheese. Cover with foil.",
+                "Bake at 350°F for 15 minutes. Remove foil and bake for an additional 10-15 more minutes, until the cheese is nice and bubbly."
+            ]
+        }
+    ]
+}
