@@ -1,0 +1,191 @@
+body {
+    padding: 1rem 3rem 0;
+    /* Tutorials are rubbing off on me man :) */
+    font-size: 10px;
+
+    background-color: #3C887E;
+    font-family: 'PT Sans', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+
+
+
+
+
+
+/* Recipe Card CSS */
+/* TODO: make card vertical even when expanded on small width screens */
+.recipe-card {
+    margin: 0 auto;
+    min-width: 40rem;
+    max-width: 80rem;
+
+    display: flex;
+    flex-direction: row;
+
+    /* background-color: #002255; */
+    padding: 1rem;
+
+}
+
+
+.recipe-card div {
+    background-color: #fafffb;
+}
+
+
+.recipe-card>div {
+    box-shadow: 0.5rem 0.5rem 2rem -0.5rem #000;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.recipe-card>div:hover {
+    box-shadow: 0.5rem 0.5rem 2rem -0.8rem #000;
+}
+
+.recipe-card.expanded {
+    /* For when the instructions are displayed */
+}
+
+
+
+/* Description and Instruction panels */
+.recipe-description {
+    width: 50%;
+    max-width: 50%;
+    min-height: 20rem;
+    margin: 0 auto;
+
+    border-radius: 0 0 1rem 1rem;
+
+    padding: 0.5rem 2rem;
+}
+
+
+/* Title Styling */
+
+.recipe-description .title {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    /* background: linear-gradient(to right, transparent 5%, #2a6aca 30%, #2a6aca 70%, transparent 95%); */
+    background: #A17C6B;
+    display: flex;
+}
+
+.recipe-description h2 {
+    display: inline;
+    font-size: 2rem;
+    margin: 0;
+    flex: 1 auto;
+    align-self: center;
+}
+
+
+[id^=triangle] {
+    display: inline-block;
+}
+
+
+#triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-left: 40px solid #fafffb;
+    border-bottom: 30px solid transparent;
+    background: transparent;
+}
+
+#triangle-left {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-right: 40px solid #fafffb;
+    border-bottom: 30px solid transparent;
+    background: transparent;
+}
+
+
+
+
+
+
+
+/* Info Panel */
+.recipe-info {
+    border: solid 1px black;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    padding: 1rem 0;
+}
+
+.recipe-info img {
+    max-width: 28%;
+    height: auto;
+    border-radius: 0.4rem;
+    align-self: flex-start;
+}
+
+.recipe-info > div {
+    flex: 1 auto;
+}
+
+.recipe-info p {
+    font-size: 1.3rem;
+    margin: 0.8rem;
+    margin-left: 0;
+}
+
+.recipe-info > div:first-of-type p {
+    margin-top: 0;
+}
+
+
+
+
+
+.recipe-description ul {
+    list-style-image: url('sqpurple.gif');
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+    list-style: none;
+}
+
+.recipe-description ul li::before {
+    content: "\2332";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: gray;
+    /* Change the color */
+    font-weight: bold;
+    /* If you want it to be bold */
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1.3rem;
+    /* Also needed for space (tweak if needed) */
+    margin-left: -1rem;
+    /* Also needed for space (tweak if needed) */
+}
+
+
+
+
+
+
+.recipe-instructions {
+    flex: 1;
+}
+
+
+
+/* Hidden Stuff */
+.hidden {
+    flex: 0;
+    width: 0;
+    display: none;
+}
