@@ -28,8 +28,45 @@ const c_RECIPE_INSTRUCTIONS = "recipe-instructions";
 const c_HIDDEN = "hidden";
 const c_NOTE = "note";
 const c_OPTIONAL = "optional";
+const c_EXPANDED = "expanded";
+
+const s_COOK_BUTTON = "Start Cooking!";
 
 
+
+
+function expandRecipe(recipeID) {
+  let recipeCard = document.getElementById(recipeID);
+
+  if (!recipeCard) return;
+
+  // Now we just expand it or someting lol
+  recipeCard.classList.add(c_EXPANDED);
+  let description = recipeCard.getElementsByClassName(c_RECIPE_INSTRUCTIONS)[0];
+
+  if (description) {
+    description.classList.remove(c_HIDDEN);
+  } else {
+    alert("Corrupted Document Structure!");
+  }
+
+}
+
+function closeRecipe(recipeID) {
+  let recipeCard = document.getElementById(recipeID);
+
+  if (!recipeCard) return;
+
+  // Now we just expand it or someting lol
+  recipeCard.classList.remove(c_EXPANDED);
+  let description = recipeCard.getElementsByClassName(c_RECIPE_INSTRUCTIONS)[0];
+
+  if (description) {
+    description.classList.add(c_HIDDEN);
+  } else {
+    alert("Corrupted Document Structure!");
+  }
+}
 
 
 
@@ -46,7 +83,10 @@ function loadRecipes(recipes) {
 }
 
 function addRecipe(container, recipe) {
-  // Well, I suppose we ought to build it, lol
+  // Set unique ID for recipe
+  if (!recipe.id) {
+    recipe.id = uuid();
+  }
   
   // Description
   let description = builRecipeDescription(recipe);
@@ -58,6 +98,7 @@ function addRecipe(container, recipe) {
   // create the parent and add the children
   let card = document.createElement("div");
   card.classList.add(c_RECIPE_CARD);
+  card.id = recipe.id;
 
   card.appendChild(description);
   card.appendChild(instructions);
@@ -84,8 +125,12 @@ function builRecipeDescription(recipe) {
 
 
   // Button or w/e
-  // TODO: lol
+  let cookButton = document.createElement("button");
+  cookButton.innerText = s_COOK_BUTTON;
+  let targetID = recipe.id;
+  cookButton.onclick = () => expandRecipe(targetID);
 
+  description.appendChild(cookButton);
 
   return description;
 }
@@ -97,6 +142,26 @@ function builRecipeInstructions(recipe) {
 
   instructions.classList.add(c_RECIPE_INSTRUCTIONS);
   instructions.classList.add(c_HIDDEN);
+
+  // Construct Header
+  let header = document.createElement("h2");
+  header.innerText = "Instructions:";
+
+  let close = document.createElement('i');
+  close.classList.add('material-icons');
+  close.innerText = "close";
+
+  let targetID = recipe.id;
+
+  close.onclick = () => closeRecipe(targetID);
+
+  header.appendChild(close);
+
+  instructions.appendChild(header);
+
+  // Build the list of instructions
+  instructions.appendChild(buildInstructionsList(recipe.instructions));
+
 
   return instructions;
 }
@@ -111,6 +176,8 @@ function buildIngredients(recipe) {
 
   let label = document.createElement("h2");
   label.textContent = "Ingredients:";
+
+  listWrapper.appendChild(label);
 
   let list = document.createElement("ul");
 
@@ -279,7 +346,36 @@ function buildTitle(recipe) {
 
 
 // Recipe Instructions helper functions
+// TODO: for binding, could pass in a list of ingredients mapped to by their ids or something
+// Then we could do the hover light up thing
+// I really think that effect would be worth it
+function createInstructionBlurb(instruction) {
+  let item = document.createElement("li");
 
+  item.innerText = instruction;
+
+  return item;
+}
+
+
+function buildInstructionsList(instructions) {
+  let listWrapper = document.createElement("div");
+
+  // Construct Instruction Enumeration
+  let list = document.createElement("ol");
+
+  // Iterate over the ingredients
+  instructions.forEach(instruction => {
+    let instructionElement = createInstructionBlurb(instruction);
+    list.appendChild(instructionElement);
+  });
+
+
+
+  listWrapper.appendChild(list);
+
+  return listWrapper;
+}
 
 
 
@@ -335,9 +431,15 @@ function convertToMeasurement(val) {
   }
 }
 
+function uuid() {
+  return Math.floor(Math.random(0xFFFF) * 0xFFFF);
+}
+
+
+
 
 // GDC javascript help from online
-var gcd = function(a, b) {
+function gcd(a, b) {
   if (b < 0.0000001) return a;
 
   return gcd(b, Math.floor(a % b));

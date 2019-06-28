@@ -32,7 +32,7 @@ h1 {
 
 /* Main Page Content Layout */
 .main-content {
-
+    padding: 1rem 3rem;
 }
 
 
@@ -265,10 +265,38 @@ sub {
 /* Instructions css */
 .recipe-instructions {
     flex: 1;
-    z-index: -1;
-    padding-left: 2rem;
-    border-radius: 0 0 0 1rem;
+    padding: 0 2rem;
+    border-radius: 0 0 1rem 0;
+    position: relative;
 }
+
+
+.recipe-instructions h2 {
+    font-size: 2rem;
+}
+
+.recipe-instructions ol {
+    font-size: 1.3rem;
+    padding-right: 3rem;
+}
+
+.recipe-instructions div {
+    position: absolute;
+    max-height: 80%;
+    overflow-y: scroll;
+}
+
+.recipe-instructions ol li {
+    margin-bottom: 1rem;
+}
+
+.recipe-instructions .material-icons { 
+    color: #F34213; 
+    float: right;
+    font-size: 2.7rem;
+    cursor: pointer;
+}
+
 
 
 
@@ -278,3 +306,4 @@ sub {
     width: 0;
     display: none;
 }
+
