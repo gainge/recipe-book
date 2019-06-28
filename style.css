@@ -117,12 +117,12 @@ h1 {
 }
 
 
-[id^=triangle] {
+[class^="triangle"] {
     display: inline-block;
 }
 
 
-#triangle-right {
+div.triangle-right {
     width: 0;
     height: 0;
     border-top: 30px solid transparent;
@@ -131,7 +131,7 @@ h1 {
     background: transparent;
 }
 
-#triangle-left {
+div.triangle-left {
     width: 0;
     height: 0;
     border-top: 30px solid transparent;
@@ -180,6 +180,7 @@ h1 {
 
 
 
+/* Ingredients */
 .recipe-description ul {
     list-style-image: url('sqpurple.gif');
     font-size: 1.2rem;
@@ -202,8 +203,14 @@ h1 {
     /* Also needed for space (tweak if needed) */
 }
 
+.note {
+    color: #BBB8B2;
+}
 
 
+
+
+/* Cook Button */
 .recipe-description button {
     float: right;
 

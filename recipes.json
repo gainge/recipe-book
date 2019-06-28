@@ -59,7 +59,7 @@
                     "amount-high": 0.5,
                     "units": "tsp",
                     "processing": "",
-                    "notes": "(adjust to taste)",
+                    "notes": "adjust to taste",
                     "required": true
                 },
                 {
@@ -73,11 +73,11 @@
                 },
                 {
                     "name": "Ortega Diced Green Chiles",
-                    "amount-low": 0.8,
-                    "amount-high": 0.8,
+                    "amount-low": 8,
+                    "amount-high": 8,
                     "units": "oz",
                     "processing": "",
-                    "notes": "(2 4oz cans)",
+                    "notes": "2 4oz cans",
                     "reference": "https://www.ortega.com/product/mild-diced-green-chiles",
                     "required": true
                 },
