@@ -3,7 +3,7 @@ body {
     /* Tutorials are rubbing off on me man :) */
     font-size: 10px;
 
-    background-color: #3C887E;
+    background-color: #41414B;
     font-family: 'PT Sans', Arial, Helvetica, sans-serif;
 }
 
@@ -80,7 +80,7 @@ h1 {
     margin-bottom: 1rem;
     margin-top: 1rem;
     /* background: linear-gradient(to right, transparent 5%, #2a6aca 30%, #2a6aca 70%, transparent 95%); */
-    background: #A17C6B;
+    background: #BC5D2E;
     display: flex;
 }
 
@@ -185,9 +185,20 @@ h1 {
 
     font-size: 1rem;
     padding: 1rem 1rem;
-    background: #5B7B7A;
-    border: none;
-    border-radius: 0.2rem;
+    background: transparent;
+    border: solid 0.2rem #BC5D2E;
+    color: #BC5D2E;
+    border-radius: 0.5rem;
+
+    transition: background-color 0.2s,
+                color 0.2s,
+                border 0.2s;
+}
+
+.recipe-description button:hover {
+    background: #BC5D2E;
+    border: solid 0.2rem rgb(160, 78, 37);
+    color: #fafffb;
 }
 
 
