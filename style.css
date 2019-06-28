@@ -1,6 +1,6 @@
 body {
-    padding: 1rem 3rem 0;
     /* Tutorials are rubbing off on me man :) */
+    margin: 0;
     font-size: 10px;
 
     background-color: #41414B;
@@ -9,6 +9,30 @@ body {
 
 h1 {
     font-size: 2rem;
+}
+
+
+/* HEADER */
+.header {
+    background: #BBB8B2;
+    /* height: 5rem; */
+    padding: 1rem 2rem;
+
+    box-shadow: 0rem 0.2rem 1rem -0.2rem #000;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+
+
+
+
+
+/* Main Page Content Layout */
+.main-content {
+
 }
 
 
@@ -190,6 +214,8 @@ h1 {
     color: #BC5D2E;
     border-radius: 0.5rem;
 
+    cursor: pointer;
+
     transition: background-color 0.2s,
                 color 0.2s,
                 border 0.2s;
@@ -197,7 +223,7 @@ h1 {
 
 .recipe-description button:hover {
     background: #BC5D2E;
-    border: solid 0.2rem rgb(160, 78, 37);
+    border: solid 0.2rem #783C1E;
     color: #fafffb;
 }
 

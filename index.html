@@ -9,41 +9,47 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <h1 style="background: #BBB8B2;">Recipes!</h1>
+    <div class="header">
+            <h1>Recipes!</h1>
+    </div>
 
 
     <!-- I just want to hash out a draft for the card structure right now -->
-    <div class="recipe-card">
-        <div class="recipe-description">
-            <div class="title">
-                <div id="triangle-right"></div>
-                <h2>COOL RECIPE</h2>
-                <div id="triangle-left"></div>
-            </div>
-            <div class="recipe-info">
-                <div>
-                    <p><strong>Time:</strong> 60 mins</p>
-                    <p><strong>Servings:</strong> 4-6</p>
-                    <p><strong>Source:</strong> <a href="https://www.iheartnaptime.net/green-chile-enchiladas/">iheartnaptime</a></p>
+    <div class="main-content">
+        <div class="recipe-card">
+            <div class="recipe-description">
+                <div class="title">
+                    <div id="triangle-right"></div>
+                    <h2>COOL RECIPE</h2>
+                    <div id="triangle-left"></div>
                 </div>
-                
-                <img src="https://i.imgur.com/g2ctL0P.jpg" alt="enchiladas">
+                <div class="recipe-info">
+                    <div>
+                        <p><strong>Time:</strong> 60 mins</p>
+                        <p><strong>Servings:</strong> 4-6</p>
+                        <p><strong>Source:</strong> <a href="https://www.iheartnaptime.net/green-chile-enchiladas/">iheartnaptime</a></p>
+                    </div>
+                    
+                    <img src="https://i.imgur.com/g2ctL0P.jpg" alt="enchiladas">
+                </div>
+    
+                <br>
+    
+                <h2>Ingredients:</h2>
+                <ul>
+                    <li>test1</li>
+                    <li>test2</li>
+                    <li>aldsfkjalk dfj </li>
+                    <li>anotha one</li>
+                    <li>last test</li>
+                </ul>
+    
+                <button>Start Cooking!</button>
             </div>
-
-            <br>
-
-            <h2>Ingredients:</h2>
-            <ul>
-                <li>test1</li>
-                <li>test2</li>
-                <li>aldsfkjalk dfj </li>
-                <li>anotha one</li>
-                <li>last test</li>
-            </ul>
-
-            <button>Start Cooking!</button>
+            <div class="recipe-instructions hidden">instructions or something</div>
         </div>
-        <div class="recipe-instructions hidden">instructions or something</div>
     </div>
 </body>
+
+<script src="./script.js"></script>
 </html>
