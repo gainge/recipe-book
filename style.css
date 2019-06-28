@@ -203,6 +203,28 @@ div.triangle-left {
     /* Also needed for space (tweak if needed) */
 }
 
+.recipe-description ul li.optional::after {
+    content: " *optional";
+    color: #F34213;
+}
+
+.recipe-description ul li {
+    line-height: 2.5rem;
+}
+
+
+sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+}
+
+sub {
+    top: 0.4em;
+}
+  
+  
+
 .note {
     color: #BBB8B2;
 }

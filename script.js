@@ -27,6 +27,7 @@ const c_RECIPE_INFO = "recipe-info";
 const c_RECIPE_INSTRUCTIONS = "recipe-instructions";
 const c_HIDDEN = "hidden";
 const c_NOTE = "note";
+const c_OPTIONAL = "optional";
 
 
 
@@ -126,14 +127,20 @@ function buildIngredients(recipe) {
 
 function createIngredientBlurb(ingredient) {
   let item = document.createElement("li");
+  if (!ingredient["required"]) {
+    item.classList.add(c_OPTIONAL);
+  }
 
-  let amount = ingredient["amount-low"];
+  let amount = convertToMeasurement(parseFloat(ingredient["amount-low"]));
+  item.appendChild(amount);
   if (ingredient["amount-high"] && ingredient["amount-low"] !== ingredient["amount-high"]) {
-    amount = amount + "-" + ingredient["amount-high"];
+    let high = convertToMeasurement(parseFloat(ingredient["amount-high"]));
+    item.appendChild(document.createTextNode("-"));
+    item.appendChild(high);
   }
 
   if (ingredient["units"]) {
-    amount += " " + ingredient["units"];
+    item.appendChild(document.createTextNode(" " + ingredient["units"]));
   }
 
   let name = ingredient["name"];
@@ -145,7 +152,7 @@ function createIngredientBlurb(ingredient) {
   
 
   // add elements as text content
-  let description = document.createTextNode(amount + " " + name);
+  let description = document.createTextNode(" " + name);
   
   if (processing) {
     description.textContent += ", " + processing;
@@ -183,11 +190,19 @@ function buildRecipeInfo(recipe) {
     servings = servings + "-" + recipe["servings-high"];
   }
 
-  let source = "N/A";
+  let source = document.createTextNode("N/A");
   if (recipe["source"]) {
-    source = recipe["source"];
+    // Parse the URL
+    let url = recipe["source"];
+    let parts = url.match('http[s]*:\/\/(www\.[a-zA-Z0-9]+\.[a-zA-Z]+)\/.*');
+    if (parts) {
+      source = document.createElement("a");
+      source.setAttribute("href", parts[0]);
+      source.textContent = parts[1];
+    } else {
+      source = document.createTextNode(url);
+    }
   }
-
 
   textWrapper.appendChild(buildLeadingStrong("Time:", time));
   textWrapper.appendChild(buildLeadingStrong("Servings:", servings));
@@ -214,7 +229,14 @@ function buildLeadingStrong(heading, content) {
   strong.textContent = heading;
 
   text.appendChild(strong);
-  text.appendChild(document.createTextNode(" " + content));
+  text.appendChild(document.createTextNode(" "));
+  
+  if (typeof content == "object") {
+    text.appendChild(content);
+  } else {
+    text.appendChild(document.createTextNode(content));
+  }
+  
 
   return text;
 }
@@ -266,3 +288,57 @@ function buildTitle(recipe) {
 
 
 
+
+
+
+
+
+
+// Misc Helper Functions
+function convertToMeasurement(val) {
+  // We're basically just going to be turning it into an impartial fraction
+  let remainder = parseFloat((val % 1).toFixed(4));
+  let integerPart = parseInt(val);
+
+  if (integerPart == val) {
+    return document.createTextNode(val);
+  } else {
+    // Things get more interesting
+    let len = remainder.toString().length - 2;
+
+    let denominator = Math.pow(10, len);
+    let numerator = remainder * denominator;
+
+    let divisor = gcd(numerator, denominator);
+
+    numerator /= divisor;
+    denominator /= divisor;
+
+    let fraction = document.createElement("span");
+    if (val > 1) {
+      fraction.appendChild(document.createTextNode(integerPart));
+    }
+
+    // Now to add the fraction :)
+    let num = document.createElement("sup");
+    num.textContent = numerator;
+
+    let denom = document.createElement("sub");
+    denom.textContent = denominator;
+
+    // Add the fraction parts into our node
+    fraction.appendChild(num);
+    fraction.appendChild(document.createTextNode("/"));
+    fraction.appendChild(denom);
+
+    return fraction;
+  }
+}
+
+
+// GDC javascript help from online
+var gcd = function(a, b) {
+  if (b < 0.0000001) return a;
+
+  return gcd(b, Math.floor(a % b));
+};
