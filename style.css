@@ -307,3 +307,99 @@ sub {
     display: none;
 }
 
+
+
+
+
+
+
+/* Mobile Layout */
+@media (max-width: 830px) {
+
+    body {
+    }
+
+    .main-content {
+        padding: 1rem 0;
+    }
+
+    .recipe-card {
+        padding: 0;
+        min-width: unset;
+    }
+
+    [class^="tri"] {
+        display: none;
+    }
+
+    .recipe-card > div {
+        width: unset;
+        min-width: 95%;
+        max-width: 95%;
+        box-sizing: border-box;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+    }
+
+    .recipe-info {
+        flex-direction: column;
+    }
+
+    .recipe-info img {
+        align-self: center;
+    }
+
+    .recipe-description ul {
+        margin-left: unset;
+    }
+
+    .recipe-description ul li::before {
+        margin-left: -2rem;
+    }
+
+    .recipe-card.expanded {
+        display: block;
+    }
+
+    .recipe-card.expanded .recipe-description {
+        border-bottom-right-radius: 1rem;
+        padding-bottom: 5.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .recipe-card.expanded .recipe-instructions {
+        margin: 2rem auto 0rem;
+        padding-top: 0.1rem;
+        padding-bottom: 1.5rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+    .recipe-instructions div {
+        position: static;
+        overflow-y: unset;
+        max-height: unset;
+    }
+
+    .recipe-instructions ol {
+        padding-right: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
