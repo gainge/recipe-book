@@ -314,7 +314,7 @@ sub {
 
 
 /* Mobile Layout */
-@media (max-width: 830px) {
+@media (max-width: 1024px) {
 
     body {
     }
