@@ -101,7 +101,8 @@
                     "notes": null,
                     "reference": "https://www.hatchchileco.com/product/hatch-green-medium-enchilada-sauce-case-1215oz/",
                     "required": true
-                },{
+                },
+                {
                     "name": "Shredded Pepper Jack Cheese",
                     "amount-low": 0.5,
                     "amount-high": 1,
@@ -119,6 +120,104 @@
                 "Spoon 2-3 tbsps into each tortilla and roll it up, placing into the prepared dish",
                 "Pour the rest of the green enchilada sauce over the tortillas and top with shredded cheese. Cover with foil.",
                 "Bake at 350°F for 15 minutes. Remove foil and bake for an additional 10-15 more minutes, until the cheese is nice and bubbly."
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Shoyu Chicken",
+            "source": "Lisa",
+            "time": 60,
+            "servings-low": 3,
+            "servings-high": 4,
+            "image": "https://i.imgur.com/4x4csNS.jpg",
+            "ingredients": [
+                {
+                    "name": "Pineapple Juice",
+                    "amount-low": 1,
+                    "amount-high": 1,
+                    "units": "Cup",
+                    "processing": null,
+                    "notes": "Orange Juice works as well",
+                    "reference": null,
+                    "required": true
+                },
+                {
+                    "name": "Soy Sauce",
+                    "amount-low": 1,
+                    "amount-high": 1,
+                    "units": "Cup",
+                    "processing": null,
+                    "notes": null,
+                    "reference": null,
+                    "required": true
+                },
+                {
+                    "name": "White Sugar",
+                    "amount-low": 1,
+                    "amount-high": 1,
+                    "units": "Cup",
+                    "processing": null,
+                    "notes": null,
+                    "reference": null,
+                    "required": true
+                },
+                {
+                    "name": "Water",
+                    "amount-low": 1.5,
+                    "amount-high": 1.5,
+                    "units": "Cup",
+                    "processing": null,
+                    "notes": null,
+                    "reference": null,
+                    "required": true
+                },
+                {
+                    "name": "Ginger",
+                    "amount-low": 1,
+                    "amount-high": 2,
+                    "units": "Cloves",
+                    "processing": null,
+                    "notes": null,
+                    "reference": null,
+                    "required": false
+                },
+                {
+                    "name": "Green Onion",
+                    "amount-low": 4,
+                    "amount-high": 6,
+                    "units": null,
+                    "processing": null,
+                    "notes": "never personally used",
+                    "reference": null,
+                    "required": false
+                },
+                {
+                    "name": "Rice",
+                    "amount-low": 1.5,
+                    "amount-high": 2,
+                    "units": "Cups",
+                    "processing": null,
+                    "notes": "Start after 20 mins",
+                    "reference": null,
+                    "required": true
+                },
+                {
+                    "name": "Corn Starch",
+                    "amount-low": 2,
+                    "amount-high": 2,
+                    "units": "Tbsp",
+                    "processing": null,
+                    "notes": null,
+                    "reference": null,
+                    "required": true
+                }
+            ],
+            "instructions": [
+                "Combine Fruit Juice, Soy Sauce, Sugar, and Water into a medium sized pot and stir until combined.",
+                "Place chicken into pot and bring to a boil/simmer for one hour",
+                "As the chicken is finishing, mix corn starch with 1/4 cup *cold* water",
+                "Pour Corn Starch mixure in with chicken and allow to thicken",
+                "Serve over rice, using leftover broth as sauce."
             ]
         }
     ]
