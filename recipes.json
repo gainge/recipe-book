@@ -175,8 +175,8 @@
                     "name": "Ginger",
                     "amount-low": 1,
                     "amount-high": 2,
-                    "units": "Cloves",
-                    "processing": null,
+                    "units": "tsp",
+                    "processing": "Grated or Minced",
                     "notes": null,
                     "reference": null,
                     "required": false
