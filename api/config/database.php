@@ -18,5 +18,7 @@ class Database {
 		// Give the database back, or whatever
 		return $this->conn;
 	}
+
+	
 }
 ?>
