@@ -2,7 +2,7 @@
 class Database {
 
 	// Define some cool variables my guy
-	private $db_name = "api_db";
+	private $db_name = "recipes";
 	public $conn;
 
 	// Get the database connection
@@ -10,7 +10,7 @@ class Database {
 		$this->conn = null;
 
 		try {
-			$this->conn = new PDO("sqlite:../../" . $this->db_name . ".db");
+			$this->conn = new PDO("sqlite:../" . $this->db_name . ".db");
 		} catch (PDOException $exception) {
 			echo "Connection error: " . $exception->getMessage();
 		}
@@ -18,7 +18,5 @@ class Database {
 		// Give the database back, or whatever
 		return $this->conn;
 	}
-
-	
 }
 ?>
