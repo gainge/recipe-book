@@ -4,7 +4,6 @@ fetch("recipes.json")
     return response.json();
   })
   .then(json => {
-    console.log(json);
     loadRecipes(json);
   })
   .catch(err => {
