@@ -326,6 +326,7 @@ sub {
     .recipe-card {
         padding: 0;
         min-width: unset;
+        margin-bottom: 1rem;
     }
 
     [class^="tri"] {
