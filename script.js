@@ -16,7 +16,8 @@ console.log("忘れないで");
 
 
 
-// Some stuff I guess
+// Class definitions
+// The "c_" prefix denotes these as class names
 const c_RECIPE_CARD = "recipe-card";
 const c_RECIPE_DESCRIPTION = "recipe-description";
 const c_TITLE = "title";
@@ -29,8 +30,9 @@ const c_NOTE = "note";
 const c_OPTIONAL = "optional";
 const c_EXPANDED = "expanded";
 
-const s_COOK_BUTTON = "Start Cooking!";
-
+const phrases = {
+  startCookingButtonText: "Start Cooking!",
+}
 
 
 
@@ -125,7 +127,7 @@ function builRecipeDescription(recipe) {
 
   // Button or w/e
   let cookButton = document.createElement("button");
-  cookButton.innerText = s_COOK_BUTTON;
+  cookButton.innerText = phrases.startCookingButtonText;
   let targetID = recipe.id;
   cookButton.onclick = () => expandRecipe(targetID);
 
