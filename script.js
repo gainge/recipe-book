@@ -203,7 +203,7 @@ function createIngredientBlurb(ingredient) {
   item.appendChild(amount);
   if (ingredient["amount-high"] && ingredient["amount-low"] !== ingredient["amount-high"]) {
     let high = convertToMeasurement(parseFloat(ingredient["amount-high"]));
-    item.appendChild(document.createTextNode("-"));
+    item.appendChild(document.createTextNode(" - "));
     item.appendChild(high);
   }
 
