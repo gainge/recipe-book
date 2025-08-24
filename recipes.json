@@ -78,7 +78,7 @@
                     "amount-high": 8,
                     "units": "oz",
                     "processing": "",
-                    "notes": "2 4oz cans",
+                    "notes": "two 4oz cans",
                     "reference": "https://www.ortega.com/product/mild-diced-green-chiles",
                     "required": true
                 },
@@ -197,7 +197,7 @@
                     "amount-high": 2,
                     "units": "Cups",
                     "processing": null,
-                    "notes": "Start after 20 mins",
+                    "notes": "start after 20 mins",
                     "reference": null,
                     "required": true
                 },
