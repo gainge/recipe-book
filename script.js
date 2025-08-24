@@ -76,11 +76,8 @@ function getMainContentDiv() {
 
 function loadRecipes(recipes) {
   var contentContainer = getMainContentDiv();
-  console.log(contentContainer);
 
   // Just go through each of the recipes and spit out a new child
-  // But this will be a little different because we're just filling it in?
-  // Eh, we could actually build a new one, lol
   recipes["recipes"].forEach(recipe => {
     addRecipe(contentContainer, recipe);
   });
