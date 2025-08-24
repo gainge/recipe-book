@@ -90,14 +90,14 @@ function addRecipe(container, recipe) {
   }
   
   // Description
-  let description = builRecipeDescription(recipe);
+  const description = builRecipeDescription(recipe);
 
   // Instructions
-  let instructions = builRecipeInstructions(recipe);
+  const instructions = builRecipeInstructions(recipe);
 
 
   // create the parent and add the children
-  let card = document.createElement("div");
+  const card = document.createElement("div");
   card.classList.add(c_RECIPE_CARD);
   card.id = recipe.id;
 
@@ -109,7 +109,7 @@ function addRecipe(container, recipe) {
 
 
 function builRecipeDescription(recipe) {
-  let description = document.createElement("div");
+  const description = document.createElement("div");
   description.classList.add(c_RECIPE_DESCRIPTION);
 
   // Title
@@ -126,9 +126,9 @@ function builRecipeDescription(recipe) {
 
 
   // Button or w/e
-  let cookButton = document.createElement("button");
+  const cookButton = document.createElement("button");
   cookButton.innerText = phrases.startCookingButtonText;
-  let targetID = recipe.id;
+  const targetID = recipe.id;
   cookButton.onclick = () => expandRecipe(targetID);
 
   description.appendChild(cookButton);
@@ -139,20 +139,20 @@ function builRecipeDescription(recipe) {
 
 
 function builRecipeInstructions(recipe) {
-  let instructions = document.createElement("div");
+  const instructions = document.createElement("div");
 
   instructions.classList.add(c_RECIPE_INSTRUCTIONS);
   instructions.classList.add(c_HIDDEN);
 
   // Construct Header
-  let header = document.createElement("h2");
+  const header = document.createElement("h2");
   header.innerText = "Instructions:";
 
-  let close = document.createElement('i');
+  const close = document.createElement('i');
   close.classList.add('material-icons');
   close.innerText = "close";
 
-  let targetID = recipe.id;
+  const targetID = recipe.id;
 
   close.onclick = () => closeRecipe(targetID);
 
@@ -173,18 +173,18 @@ function builRecipeInstructions(recipe) {
 
 // Recipe Description Helper Functions
 function buildIngredients(recipe) {
-  let listWrapper = document.createElement("div");
+  const listWrapper = document.createElement("div");
 
-  let label = document.createElement("h2");
+  const label = document.createElement("h2");
   label.textContent = "Ingredients:";
 
   listWrapper.appendChild(label);
 
-  let list = document.createElement("ul");
+  const list = document.createElement("ul");
 
   // Iterate over the ingredients
   recipe.ingredients.forEach(ingredient => {
-    let ingredientDescription = createIngredientBlurb(ingredient);
+    const ingredientDescription = createIngredientBlurb(ingredient);
     list.appendChild(ingredientDescription);
   });
 
@@ -194,12 +194,12 @@ function buildIngredients(recipe) {
 }
 
 function createIngredientBlurb(ingredient) {
-  let item = document.createElement("li");
+  const item = document.createElement("li");
   if (!ingredient["required"]) {
     item.classList.add(c_OPTIONAL);
   }
 
-  let amount = convertToMeasurement(parseFloat(ingredient["amount-low"]));
+  const amount = convertToMeasurement(parseFloat(ingredient["amount-low"]));
   item.appendChild(amount);
   if (ingredient["amount-high"] && ingredient["amount-low"] !== ingredient["amount-high"]) {
     let high = convertToMeasurement(parseFloat(ingredient["amount-high"]));
@@ -211,16 +211,12 @@ function createIngredientBlurb(ingredient) {
     item.appendChild(document.createTextNode(" " + ingredient["units"]));
   }
 
-  let name = ingredient["name"];
+  const name = ingredient["name"];
 
-  let processing = "";
-  if (ingredient["processing"]) {
-    processing = ingredient["processing"];
-  }
-  
+  const processing = ingredient["processing"] ?? "";
 
   // add elements as text content
-  let description = document.createTextNode(" " + name);
+  const description = document.createTextNode(" " + name);
   
   if (processing) {
     description.textContent += ", " + processing;
@@ -231,7 +227,7 @@ function createIngredientBlurb(ingredient) {
 
   // Add notes last as a span child
   if (ingredient["notes"]) {
-    let notesSpan = document.createElement("span");
+    const notesSpan = document.createElement("span");
     notesSpan.classList.add(c_NOTE);
 
     notesSpan.textContent = " (" + ingredient["notes"] + ")";
@@ -245,13 +241,13 @@ function createIngredientBlurb(ingredient) {
 
 
 function buildRecipeInfo(recipe) {
-  let info = document.createElement("div");
+  const info = document.createElement("div");
   info.classList.add(c_RECIPE_INFO);
 
   // Create the basic info panel
-  let textWrapper = document.createElement("div");
+  const textWrapper = document.createElement("div");
 
-  let time = recipe["time"];
+  const time = recipe["time"];
 
   let servings = recipe["servings-low"];
   if (recipe["servings-low"] !== recipe["servings-high"]) {
@@ -261,8 +257,8 @@ function buildRecipeInfo(recipe) {
   let source = document.createTextNode("N/A");
   if (recipe["source"]) {
     // Parse the URL
-    let url = recipe["source"];
-    let parts = url.match('http[s]*:\/\/(www\.[a-zA-Z0-9]+\.[a-zA-Z]+)\/.*');
+    const url = recipe["source"];
+    const parts = url.match('http[s]*:\/\/(www\.[a-zA-Z0-9]+\.[a-zA-Z]+)\/.*');
     if (parts) {
       source = document.createElement("a");
       source.setAttribute("href", parts[0]);
@@ -280,7 +276,7 @@ function buildRecipeInfo(recipe) {
 
   // add the image
   if (recipe["image"]) {
-    let image = document.createElement("img");
+    const image = document.createElement("img");
     image.setAttribute("src", recipe["image"]);
 
     info.appendChild(image);
@@ -291,9 +287,9 @@ function buildRecipeInfo(recipe) {
 }
 
 function buildLeadingStrong(heading, content) {
-  let text = document.createElement("p");
+  const text = document.createElement("p");
 
-  let strong = document.createElement("strong");
+  const strong = document.createElement("strong");
   strong.textContent = heading;
 
   text.appendChild(strong);
@@ -311,17 +307,17 @@ function buildLeadingStrong(heading, content) {
 
 
 function buildTitle(recipe) {
-  let title = document.createElement("div");
+  const title = document.createElement("div");
   title.classList.add(c_TITLE);
 
   // Create the triangles and header info
-  let triRight = document.createElement("div");
+  const triRight = document.createElement("div");
   triRight.classList.add(c_TRI_RIGHT);
 
-  let triLeft = document.createElement("div");
+  const triLeft = document.createElement("div");
   triLeft.classList.add(c_TRI_LEFT);
 
-  let header = document.createElement("h2");
+  const header = document.createElement("h2");
   header.textContent = recipe["title"];
 
 
@@ -337,21 +333,12 @@ function buildTitle(recipe) {
 
 
 
-
-
-
-
-
-
-
-
-
 // Recipe Instructions helper functions
 // TODO: for binding, could pass in a list of ingredients mapped to by their ids or something
 // Then we could do the hover light up thing
 // I really think that effect would be worth it
 function createInstructionBlurb(instruction) {
-  let item = document.createElement("li");
+  const item = document.createElement("li");
 
   item.innerText = instruction;
 
@@ -360,18 +347,16 @@ function createInstructionBlurb(instruction) {
 
 
 function buildInstructionsList(instructions) {
-  let listWrapper = document.createElement("div");
+  const listWrapper = document.createElement("div");
 
   // Construct Instruction Enumeration
-  let list = document.createElement("ol");
+  const list = document.createElement("ol");
 
   // Iterate over the ingredients
   instructions.forEach(instruction => {
-    let instructionElement = createInstructionBlurb(instruction);
+    const instructionElement = createInstructionBlurb(instruction);
     list.appendChild(instructionElement);
   });
-
-
 
   listWrapper.appendChild(list);
 
@@ -382,26 +367,17 @@ function buildInstructionsList(instructions) {
 
 
 
-
-
-
-
-
-
-
-
-
 // Misc Helper Functions
 function convertToMeasurement(val) {
   // We're basically just going to be turning it into an impartial fraction
-  let remainder = parseFloat((val % 1).toFixed(4));
-  let integerPart = parseInt(val);
+  const remainder = parseFloat((val % 1).toFixed(4));
+  const integerPart = parseInt(val);
 
   if (integerPart == val) {
     return document.createTextNode(val);
   } else {
     // Things get more interesting
-    let len = remainder.toString().length - 2;
+    const len = remainder.toString().length - 2;
 
     let denominator = Math.pow(10, len);
     let numerator = remainder * denominator;
@@ -411,13 +387,13 @@ function convertToMeasurement(val) {
     numerator /= divisor;
     denominator /= divisor;
 
-    let fraction = document.createElement("span");
+    const fraction = document.createElement("span");
     if (val > 1) {
       fraction.appendChild(document.createTextNode(integerPart));
     }
 
     // Now to add the fraction :)
-    let num = document.createElement("sup");
+    const num = document.createElement("sup");
     num.textContent = numerator;
 
     let denom = document.createElement("sub");
@@ -435,9 +411,6 @@ function convertToMeasurement(val) {
 function uuid() {
   return Math.floor(Math.random(0xFFFF) * 0xFFFF);
 }
-
-
-
 
 // GDC javascript help from online
 function gcd(a, b) {
