@@ -1,9 +1,14 @@
+let recipeData = undefined;
+let filteredRecipes = undefined;
+
 // Aight, let's try to populate this sucker
 fetch("recipes.json")
   .then(response => {
     return response.json();
   })
   .then(json => {
+    recipeData = json;
+    filteredRecipes = recipeData;
     loadRecipes(json);
   })
   .catch(err => {
@@ -37,13 +42,16 @@ const phrases = {
 
 
 function expandRecipe(recipeID) {
-  let recipeCard = document.getElementById(recipeID);
+  const recipeCard = document.getElementById(recipeID);
 
-  if (!recipeCard) return;
+  if (!recipeCard) {
+    alert("Attempted to expand a recipe that does not exist! ID: " + recipeID);
+    return;
+  };
 
-  // Now we just expand it or someting lol
+  // Now we just expand it or something lol
   recipeCard.classList.add(c_EXPANDED);
-  let description = recipeCard.getElementsByClassName(c_RECIPE_INSTRUCTIONS)[0];
+  const description = recipeCard.getElementsByClassName(c_RECIPE_INSTRUCTIONS)[0];
 
   if (description) {
     description.classList.remove(c_HIDDEN);
@@ -54,13 +62,16 @@ function expandRecipe(recipeID) {
 }
 
 function closeRecipe(recipeID) {
-  let recipeCard = document.getElementById(recipeID);
+  const recipeCard = document.getElementById(recipeID);
 
-  if (!recipeCard) return;
+  if (!recipeCard) {
+    alert("Attempted to close a recipe that does not exist! ID: " + recipeID);
+    return;
+  };
 
   // Now we just expand it or someting lol
   recipeCard.classList.remove(c_EXPANDED);
-  let description = recipeCard.getElementsByClassName(c_RECIPE_INSTRUCTIONS)[0];
+  const description = recipeCard.getElementsByClassName(c_RECIPE_INSTRUCTIONS)[0];
 
   if (description) {
     description.classList.add(c_HIDDEN);
@@ -75,7 +86,7 @@ function getMainContentDiv() {
 }
 
 function loadRecipes(recipes) {
-  var contentContainer = getMainContentDiv();
+  const contentContainer = getMainContentDiv();
 
   // Just go through each of the recipes and spit out a new child
   recipes["recipes"].forEach(recipe => {
@@ -199,10 +210,10 @@ function createIngredientBlurb(ingredient) {
     item.classList.add(c_OPTIONAL);
   }
 
-  const amount = convertToMeasurement(parseFloat(ingredient["amount-low"]));
+  const amount = convertToFractionMeasurement(parseFloat(ingredient["amount-low"]));
   item.appendChild(amount);
   if (ingredient["amount-high"] && ingredient["amount-low"] !== ingredient["amount-high"]) {
-    let high = convertToMeasurement(parseFloat(ingredient["amount-high"]));
+    let high = convertToFractionMeasurement(parseFloat(ingredient["amount-high"]));
     item.appendChild(document.createTextNode(" - "));
     item.appendChild(high);
   }
@@ -368,8 +379,14 @@ function buildInstructionsList(instructions) {
 
 
 // Misc Helper Functions
-function convertToMeasurement(val) {
-  // We're basically just going to be turning it into an impartial fraction
+
+/**
+ * Converts a float value to a string representation as a proper fraction.
+ * 
+ * @param val Value for the measurement as a float 
+ * @returns String representation of the value as a proper fraction
+ */
+function convertToFractionMeasurement(val) {
   const remainder = parseFloat((val % 1).toFixed(4));
   const integerPart = parseInt(val);
 
