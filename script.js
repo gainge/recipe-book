@@ -70,9 +70,12 @@ function closeRecipe(recipeID) {
 }
 
 
+function getMainContentDiv() {
+  return document.getElementById("main-content");
+}
 
 function loadRecipes(recipes) {
-  var contentContainer = document.getElementsByClassName("main-content")[0];
+  var contentContainer = getMainContentDiv();
   console.log(contentContainer);
 
   // Just go through each of the recipes and spit out a new child
