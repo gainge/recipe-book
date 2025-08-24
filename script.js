@@ -269,7 +269,7 @@ function buildRecipeInfo(recipe) {
   if (recipe["source"]) {
     // Parse the URL
     const url = recipe["source"];
-    const parts = url.match('http[s]*:\/\/(www\.[a-zA-Z0-9]+\.[a-zA-Z]+)\/.*');
+    const parts = url.match('http[s]?:\/\/(w?w?w?\.?[a-zA-Z0-9]+\.[a-zA-Z]+)\/.*');
     if (parts) {
       source = document.createElement("a");
       source.setAttribute("href", parts[0]);
